@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sigma.js Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.2.1/sigma.min.js"></script>
+    <script>
+        function loadGraph() {
+            const s = new sigma({
+                container: 'network-graph',
+                settings: {
+                    defaultNodeColor: '#ec5148'
+                }
+            });
+
+            // 加载JSON文件
+            sigma.parsers.json("output/network.json", s, function() {
+                s.refresh();
+            });
+        }
+    </script>
+</head>
+<body onload="loadGraph()">
+<div id="network-graph" style="width: 800px; height: 600px;"></div>
+</body>
+</html>
